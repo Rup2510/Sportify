@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Management Platform</title>
+    <style>
+        /* General styles */
+        
+        body {
+            font-family: "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        form {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            font-size: 1.2em;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        input[type="submit"],
+        button {
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #444;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        #booking-confirmation {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #3CB371;
+            color: #fff;
+            border-radius: 5px;
+        }
+        /* Media queries */
+        
+        @media screen and (min-width: 768px) {
+            main {
+                max-width: 700px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <h1>Booking Management Platform</h1>
+    </header>
+    <main>
+        <form id="facility-search-form">
+            <h2>Search for Facilities</h2>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+            <label for="amenities">Amenities:</label>
+            <select id="amenities" name="amenities">
+          <option value="">Select an amenity</option>
+          <option value="pool">Pool</option>
+          <option value="gym">Gym</option>
+          <option value="tennis-court">Tennis Court</option>
+          <option value="spa">Spa</option>
+        </select>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <input type="submit" value="Search">
+        </form>
+        <div id="facilities-list">
+            <h2>Facilities</h2>
+            <ul>
+                <li>
+                    <h3>Facility Name</h3>
+                    <p>Address: 123 Main St</p>
+                    <p>Amenities: Pool, Gym</p>
+                    <p>Availability: Monday-Friday, 9am-5pm</p>
+                    <form id="booking-form">
+                        <input type="hidden" name="facility-name" value="Facility Name">
+                        <label for="booking-date">Date:</label>
+                        <input type="date" id="booking-date" name="booking-date" required>
+                        <label for="booking-time">Time:</label>
+                        <input type="time" id="booking-time" name="booking-time" required>
+                        <input type="submit" value="Book">
+                    </form>
+                </li>
+                <li>
+                    <h3>Another Facility Name</h3>
+                    <p>Address: 456 Main St</p>
+                    <p>Amenities: Tennis Court, Spa</p>
+                    <p>Availability: Monday-Friday, 8am-6pm</p>
+                    <form id="booking-form">
+                        <input type="hidden" name="facility-name" value="Another Facility Name">
+                        <label for="booking-date">Date:</label>
+                        <input type="date" id="booking-date" name="booking-date" required>
+                        <label for="booking-time">Time:</label>
+                        <input type="time" id="booking-time" name="booking-time" required>
+                        <input type="submit" value="Book">
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div id="booking-confirmation">
+            <h2>Booking Confirmation</h2>
+            <p>Your booking for Facility Name on [date] at [time] has been confirmed.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Booking Management Platform</p>
+    </footer>
+</body>
+
+</html>

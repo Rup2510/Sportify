@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facility Management Platform</title>
+    <style>
+        /* General styles */
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        /* Header styles */
+        
+        header {
+            background-color: #5d5d5d;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        header nav {
+            display: flex;
+        }
+        
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        /* Form styles */
+        
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+        
+        form h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        form label {
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        form input[type="text"],
+        form input[type="number"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+        
+        form input[type="file"] {
+            margin-bottom: 20px;
+        }
+        
+        form input[type="submit"] {
+            background-color: #5d5d5d;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        form input[type="submit"]:hover {
+            background-color: #333;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create and Manage Your Facility Profile</h1>
+    <form id="facility-form">
+        <label for="facility-name">Facility Name:</label>
+        <input type="text" id="facility-name" name="facility-name" required><br>
+        <span id="name-error" class="error"></span>
+
+        <label for="facility-description">Facility Description:</label>
+        <textarea id="facility-description" name="facility-description" rows="4" cols="50" required></textarea><br>
+        <span id="description-error" class="error"></span>
+
+        <label for="facility-image">Facility Image:</label>
+        <input type="file" id="facility-image" name="facility-image" accept="image/*" required><br>
+        <span id="image-error" class="error"></span>
+
+        <label for="facility-pricing">Facility Pricing:</label>
+        <input type="number" id="facility-pricing" name="facility-pricing" required><br>
+        <span id="pricing-error" class="error"></span>
+
+        <label for="facility-availability">Facility Availability:</label>
+        <input type="text" id="facility-availability" name="facility-availability" required><br>
+        <span id="availability-error" class="error"></span>
+
+        <input type="submit" value="Create Profile">
+    </form>
+
+    <script>
+        // JavaScript code for form validation
+        const form = document.getElementById('facility-form');
+        const nameInput = document.getElementById('facility-name');
+        const descriptionInput = document.getElementById('facility-description');
+        const imageInput = document.getElementById('facility-image');
+        const pricingInput = document.getElementById('facility-pricing');
+        const availabilityInput = document.getElementById('facility-availability');
+
+        form.addEventListener('submit', (event) => {
+                    let isValid = true;
+                    event.preventDefault();
+
+                    // validate facility name
+                    if (nameInput.value.trim() === '') {
+                        document.getElementById('name-error').textContent = 'Facility name is required';
+                        isValid = false;
+                    } else {
+                        document.getElementById('name-error').textContent = '';
+                    }
+
+                    // validate facility description
+                    if (descriptionInput.value.trim()
